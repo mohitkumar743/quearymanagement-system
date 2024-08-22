@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import QuearyCard from "../Components/QuearyCard"; // Assuming QuearyCard is a component
 import TiketCard from "../Components/tiketCard";
 function CheckQueary() {
+
+  const [btnaction, setbtnaction] = useState(false);
   useEffect(()=>{
     
     document.title= "Queary Status|| QMS";
@@ -18,6 +20,10 @@ function CheckQueary() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setbtnaction(true);
+
+
+    
     // console.log("Searching for ticket number:", tiketno);
 
     const fetchQueries = async () => {
@@ -25,15 +31,29 @@ function CheckQueary() {
         const response = await axios.get(
           `http://localhost:5000/api/queary/findbytiket/${tiketno}`
         );
-        // console.log(response.data);
-        setQueries(response.data);
+        console.log(response.data);
+        if (response.data.length ==0) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            text: "no queary found",
+            showConfirmButton: true,
+          });
+          
+        }
+        else{
+          setQueries(response.data);
+
+        }
+        setbtnaction(false);
+
       } catch (err) {
         Swal.fire({
-          position: "center",
-          icon: "error",
-          text: err.response.data.message,
-          showConfirmButton: true,
+          title: "SomeThing Went Wrong",
+          text: err.message,
+          icon: "error"
         });
+        setbtnaction(false);
        
 
         // console.error(err);
@@ -65,8 +85,8 @@ function CheckQueary() {
                 <button
                   className="border-2 h-[60px] p-1 m-3 rounded-md bg-slate-400 hover:bg-orange-500 border-black text-center"
                   type="submit"
-                >
-                  Search
+                > {btnaction?"Please Wait":"Search"}
+                  
                 </button>
               </div>
             </form>
@@ -79,7 +99,9 @@ function CheckQueary() {
                 <TiketCard key={query._id} query={query} />
               ))
             ) : (
-              <p className="text-white text-center">No queries found for this ticket number.</p>
+              
+
+              <p className="text-white text-center"> {Queries?"":"No queries found for this ticket number."}</p>
             )}
           </div>
       {/* <TiketCard/> */}

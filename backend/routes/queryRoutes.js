@@ -44,14 +44,17 @@ router.get('/findbytiket/:tiketno', async (req, res) => {
   try {
     const tiketNumber = req.params.tiketno;
     const queries = await Quearies.find({ticketNumber: tiketNumber });
-    if (!queries.length === 0) {
-      // return res.status(404).json({ message: 'No queries found for this tiket no' });
+    if (queries.length == 0) {
+      return res.status(404).json({ message: 'No queries found for this tiket no' });
+      // res.json(queries);
+    }else{
+
       res.json(queries);
     }
   } catch (err) {
     return res.json({ message: 'No queries found for this tiket NO' });
 
-    console.error('Error fetching queries:', err.message);
+    // console.log('Error fetching queries:', err.message);
     // res.status(500).json({ message: 'Server error' });
   }
 });
