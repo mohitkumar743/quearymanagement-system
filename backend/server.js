@@ -19,6 +19,7 @@ mongoose.connect(process.env.MONGOSTRING)
   .catch(err => console.log(err));
 // this route is for queary related api
 app.use('/api/queary', QueryRoutes);
+app.get("/", (req, res) => res.send("Express on Vercel"));
 // this route is for user related api
 app.use('/api/user',UserRoutes);
 app.use('/sendMail',sendMail);
