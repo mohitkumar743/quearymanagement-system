@@ -26,7 +26,7 @@ function QuearyCard({ query, onStatusUpdate }) {
         // calling a delete api for delete the queary
         try {
           
-          const response = await axios.delete(`http://localhost:5001/api/queary/queries/${query._id}`);
+          const response = await axios.delete(`https://queary-management-system-server.onrender.com/api/queary/queries/${query._id}`);
           console.log(response.data.message);
           // onDelete(query._id); // Update the UI to remove the deleted item
           Swal.fire({

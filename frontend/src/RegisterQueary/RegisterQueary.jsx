@@ -35,7 +35,7 @@ const handleSubmit = (e) => {
     e.preventDefault();
     setbtnaction(true);
 
-    axios.post('http://localhost:5001/api/queary/newqueary', formData)
+    axios.post('https://queary-management-system-server.onrender.com/api/queary/newqueary', formData)
         .then(async (response )=> {
           const ticketNumber = response.data.ticketNumber;
           const Usermail = formData.email;

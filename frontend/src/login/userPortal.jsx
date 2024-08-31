@@ -30,7 +30,7 @@ function UserPortal() {
       const fetchUserInfo = async () => {
         try {
           const res = await axios.get(
-            "http://localhost:5001/api/user/profile",
+            "https://queary-management-system-server.onrender.com/api/user/profile",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ function UserPortal() {
   const fetchQueries = async (Mobilenumber) => {
     try {
       const response = await axios.get(
-        `http://localhost:5001/api/queary/queries/${Mobilenumber}`
+        `https://queary-management-system-server.onrender.com/api/queary/queries/${Mobilenumber}`
       );
       console.log(response.data);
       setQueries(response.data);

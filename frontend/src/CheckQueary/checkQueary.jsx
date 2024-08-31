@@ -28,7 +28,7 @@ function CheckQueary() {
     const fetchQueries = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5001/api/queary/findbytiket/${tiketno}`
+          `https://queary-management-system-server.onrender.com/api/queary/findbytiket/${tiketno}`
         );
         console.log(response.data);
         if (response.data.length ==0) {

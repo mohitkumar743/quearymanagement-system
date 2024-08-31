@@ -29,7 +29,7 @@ function adminLogin() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5001/api/user/Admin", AdminData)
+      .post("https://queary-management-system-server.onrender.com/api/user/Admin", AdminData)
       .then((response) => {
         //console.log(response.data.token);
         if (response.data.token) {

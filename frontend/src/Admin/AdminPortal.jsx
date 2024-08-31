@@ -17,7 +17,7 @@ function AdminPortal() {
   // Fetch all queries
   useEffect(() => {
     axios
-      .get("http://localhost:5001/api/queary/allqueries")
+      .get("https://queary-management-system-server.onrender.com/api/queary/allqueries")
       .then((response) => {
         setQueries(response.data);
       })
@@ -44,7 +44,7 @@ function AdminPortal() {
   const handleStatusUpdate = async (tiketno, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5001/api/queary/editqueries/${tiketno}`,
+        `https://queary-management-system-server.onrender.com/api/queary/editqueries/${tiketno}`,
         { status: newStatus }
       );
       Swal.fire({
@@ -56,7 +56,7 @@ function AdminPortal() {
       });
       // Refresh queries list
       const response = await axios.get(
-        "http://localhost:5001/api/queary/allqueries"
+        "https://queary-management-system-server.onrender.com/api/queary/allqueries"
       );
       setQueries(response.data);
     } catch (error) {

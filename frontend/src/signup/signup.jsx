@@ -31,7 +31,7 @@ const [btnaction, setbtnaction] = useState(false);
     e.preventDefault();
     setbtnaction(true);
     axios
-      .post("http://localhost:5001/api/user/new", formData)
+      .post("https://queary-management-system-server.onrender.com/api/user/new", formData)
       .then(async(response) => {
         // console.log(response)
         const Usermail = formData.email;
