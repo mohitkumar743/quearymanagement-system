@@ -1,6 +1,5 @@
 import React,{ useState,useEffect} from "react";
 import Navbar from "../Components/navbar";
-import { useForm } from "react-hook-form";
 import axios from "axios";
 import Swal from "sweetalert2";
 import SendMail from "../api/api"
@@ -20,12 +19,6 @@ const [btnaction, setbtnaction] = useState(false);
     password: ""
   });
 
-  // Name:req.body.name,
-  //   UserName:req.body.username,
-  //   MobileNumber:req.body.mobilenumber,
-  //   email:req.body.email,
-  //   password:req.body.password
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -38,7 +31,7 @@ const [btnaction, setbtnaction] = useState(false);
     e.preventDefault();
     setbtnaction(true);
     axios
-      .post("http://localhost:5000/api/user/new", formData)
+      .post("http://localhost:5001/api/user/new", formData)
       .then(async(response) => {
         // console.log(response)
         const Usermail = formData.email;
@@ -224,95 +217,6 @@ const [btnaction, setbtnaction] = useState(false);
               </button>
             </div>
           </form>
-
-          {/* <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex flex-col   mt-3  text-black">
-              <input
-                placeholder="Enter Your Full Name"
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
-                {...register("Name", { required: true })}
-              />
-              {errors.Name && (
-                <span className="ml-9">
-                  <font color="red">this is required please fil this</font>
-                </span>
-              )}
-
-              <input
-                placeholder="Enter Your Username"
-                className=" w-[30vw] rounded-md py-2 m-3 border-2 border-black"
-                {...register("UserName", {
-                  required: true,
-                  minLength: { value: 8, message: "min length is 8" },
-                  maxLength: { value: 18, message: "max length is 18" },
-                })}
-              />
-              {errors.UserName && (
-                <span className="ml-9">
-                  <font color="red">{errors.UserName.message}</font>
-                </span>
-              )}
-
-              <input
-                placeholder="Enter Your Mobile Number"
-                className=" w-[30vw] rounded-md py-2 m-3 border-2 border-black"
-                {...register("MobileNumber", {
-                  required: true,
-                  minLength: {
-                    value: 10,
-                    message: "mobile no must be  10 digit",
-                  },
-                  maxLength: {
-                    value: 10,
-                    message: "Mobile No must be 10 digit",
-                  },
-                })}
-              />
-              {errors.MobileNumber && (
-                <span className="ml-9">
-                  <font color="red">{errors.MobileNumber.message}</font>
-                </span>
-              )}
-
-              <input
-                placeholder="Enter Your Email"
-                className=" w-[30vw] rounded-md py-2 m-3 border-2 border-black"
-                {...register("Email", { required: true })}
-              />
-              {errors.Email && (
-                <span className="ml-9">
-                  <font color="red">{errors.Email.message}</font>
-                </span>
-              )}
-
-              <input
-                placeholder="Enter Your Password"
-                type="password"
-                className=" w-[30vw] rounded-md py-2 m-3 border-2 border-black"
-                {...register("password", {
-                  required: true,
-                  minLength: 8,
-                  maxLength: 16,
-                })}
-              />
-              {errors.password && (
-                <span className="ml-9">
-                  <font color="red">{errors.password.message}</font>
-                </span>
-              )}
-                <div className="border-2  h-[60px] p-1 m-3 rounded-md bg-slate-400 hover:bg-orange-500 border-black text-center">
-              <button
-              disabled={isSubmitting}
-                className="  h-[100%] w-[100%] "
-                type="submit">
-                {isSubmitting?"loading...":"Register"}
-              </button>
-               {isSubmitting && <p className="text-red-500 mt-7" >Loading...</p>} 
-               
-              
-              </div>
-            </div>
-          </form> */}
         </div>
       </div>
     </>

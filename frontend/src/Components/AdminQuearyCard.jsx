@@ -1,15 +1,49 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { Link } from 'react-router-dom'
 import SendMail from "../api/api"
+import axios from "axios";
 
-function QuearyCard({ query, onStatusUpdate,onemailupdate }) {
+
+function QuearyCard({ query, onStatusUpdate }) {
   const [statuspopupOpen, setstatusPopupOpen] = useState(false);
   const [emailpopupOpen, setemailPopupOpen] = useState(false);
   const [newStatus, setNewStatus] = useState(query.status);
   const [btnaction, setbtnaction] = useState(false);
-  // const Usermail = query.email;
   const [newmail, setNewmail] = useState("");
+
+
+  const DeleteQueary =()=>{
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't to delete this queary",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async(result) => {
+      if (result.isConfirmed) {
+        // calling a delete api for delete the queary
+        try {
+          
+          const response = await axios.delete(`http://localhost:5001/api/queary/queries/${query._id}`);
+          console.log(response.data.message);
+          // onDelete(query._id); // Update the UI to remove the deleted item
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          }); 
+          
+      } catch (error) {
+          console.error('There was an error deleting the query!', error);
+      }
+        
+        
+      }
+    });
+    // alert(query._id);
+  }
 
   const handleStatusChange = async (event) => {
     event.preventDefault();
@@ -125,7 +159,7 @@ function QuearyCard({ query, onStatusUpdate,onemailupdate }) {
       </body>
       </html>
       `;
-      // const agentRespose = newmail;
+      
       const ttitle =`regarding your queary regarding ${query.title}`;
     await SendMail(ttitle,Usermail,agentRespose);
       // console.log(Usermail);
@@ -144,8 +178,8 @@ function QuearyCard({ query, onStatusUpdate,onemailupdate }) {
 
   return (
     <>
-      <div className="m-8">
-        <div className="bg-white mx-auto h-[23vh] rounded-lg p-4 shadow-md max-w-4xl">
+      <div className="m-8 ">
+        <div className="bg-white mx-auto h-[24vh] rounded-lg p-4 shadow-md max-w-4xl">
           <div className="flex justify-between items-center">
             <div className="flex gap-1">
               <div className="circle">
@@ -175,7 +209,7 @@ function QuearyCard({ query, onStatusUpdate,onemailupdate }) {
                 Created At: {new Date(query.createdAt).toLocaleString()}
               </p>
             </div>
-            <div className="w-[20%]">
+            <div className="w-[20%] ">
               <div className="flex justify-center flex-col items-center">
                 <button
                   onClick={() => setstatusPopupOpen(true)}
@@ -188,8 +222,11 @@ function QuearyCard({ query, onStatusUpdate,onemailupdate }) {
                   className="btn btn-xs m-3 bg-green-500 text-white hover:bg-green-600"
                 >
                   Reply on mail
-                </button>
-              </div>
+                </button></div>
+
+                <button onClick={() => DeleteQueary()}
+                 className="ml-[9vw] "><img className="w-6" src="/delete.gif" alt="User Avatar" /></button>
+              
             </div>
           </div>
         </div>
@@ -230,7 +267,7 @@ function QuearyCard({ query, onStatusUpdate,onemailupdate }) {
       )}
 
 
-{/* email Popup */}
+
 {/* Email Popup */}
 {emailpopupOpen && (
   <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">

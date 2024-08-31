@@ -1,6 +1,5 @@
 import React,{ useState,useEffect} from "react";
 import Navbar from "../Components/navbar";
-import { useForm } from "react-hook-form";
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
@@ -36,7 +35,7 @@ const handleSubmit = (e) => {
     e.preventDefault();
     setbtnaction(true);
 
-    axios.post('http://localhost:5000/api/queary/newqueary', formData)
+    axios.post('http://localhost:5001/api/queary/newqueary', formData)
         .then(async (response )=> {
           const ticketNumber = response.data.ticketNumber;
           const Usermail = formData.email;

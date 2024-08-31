@@ -6,7 +6,7 @@ const SendMail = async(ttitle,Usermail,agentRespose) => {
   const subject=ttitle;
   const body =agentRespose;
     try {
-      const response = await axios.post('http://localhost:5000/sendMail', {
+      const response = await axios.post('http://localhost:5001/sendMail', {
         email,
         subject,
         body,
@@ -15,7 +15,7 @@ const SendMail = async(ttitle,Usermail,agentRespose) => {
       // Handle the response if needed
     //   console.log('Mail sent successfully:', response.data);
     } catch (error) {
-      console.error('Error sending mail:', error);
+      // console.error('Error sending mail:', error);
     }
   };
 

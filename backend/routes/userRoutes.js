@@ -14,14 +14,14 @@ const authMiddleware = (req, res, next) => {
   
   const authHeader = req.header('Authorization');
  
-  console.log('Authorization Header:', authHeader); // Log the full Authorization header
+  // console.log('Authorization Header:', authHeader); 
   
   if (!authHeader) {
     return res.status(401).json({ message: 'No token, authorization denied' });
   }
 
   const token = authHeader.split(' ')[1];
-  console.log('Extracted Token:', token); // Log the extracted token
+  // console.log('Extracted Token:', token); 
 
   if (!token) {
     return res.status(401).json({ message: 'Token missing from Authorization header' });
@@ -29,11 +29,11 @@ const authMiddleware = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, 'mohit');
-    console.log('Decoded Token:', decoded); // Log the decoded token payload
+    // console.log('Decoded Token:', decoded); // Log the decoded token payload
     req.user = decoded.user;
     next();
   } catch (err) {
-    console.error('Token verification error:', err.message);
+    // console.error('Token verification error:', err.message);
     res.status(400).json({ message: 'Token is not valid' });
   }
 };
@@ -45,11 +45,11 @@ const authMiddleware = (req, res, next) => {
 router.get('/profile', authMiddleware, async (req, res) => {
   try {
     const userdata = req.user;
-    console.log(userdata.Name)
+    // console.log(userdata.Name)
     const userData =userdata
     res.json(userData);
   } catch (err) {
-    console.error('Server error:', err.message); 
+    // console.error('Server error:', err.message); 
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -118,7 +118,7 @@ router.post('/new', async (req, res) => {
   try {
     const contactno = users.MobileNumber
     const isactiveuser = await Users.findOne({MobileNumber:contactno});
-    console.log(users.password)
+    // console.log(users.password)
 
     if(isactiveuser){
       res.send ({ message:"user is already have an account please login"});

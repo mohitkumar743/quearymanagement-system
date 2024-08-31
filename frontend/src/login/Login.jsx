@@ -4,7 +4,7 @@ import Navbar from "../Components/navbar";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Swal from "sweetalert2";
-// import { useHistory } from 'react-router-dom';
+
 
 function Login() {
   useEffect(()=>{
@@ -16,11 +16,11 @@ function Login() {
   useEffect(() => {
     const token = localStorage.getItem('Authtoken');
     if (token) {
-        // Redirect to login after the alert is closed
+       
         navigate('/user/userPortal');
     }
   }, [navigate]);
-  // const history = useHistory();
+ 
   const [signinData, setsigninData] = useState({
     mobilenumber: "",
     password: "",
@@ -38,16 +38,10 @@ function Login() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/user/login", signinData)
+      .post("http://localhost:5001/api/user/login", signinData)
       .then((response) => {
         // console.log(response.data.token);
         if (response.data.token) {
-          // Swal.fire({
-          //   title: "congratulations ",
-          //   text: " Your are Login Sucessfully !",
-          //   icon: "success",
-          // });
-
           Swal.fire({
             position: "center",
             icon: "success",
@@ -55,9 +49,9 @@ function Login() {
             showConfirmButton: false,
             timer: 1500
           });
-          localStorage.setItem('Authtoken', response.data.token); // Store the token in localStorage
-          navigate('/user/userPortal'); // Navigate to user portal
-          // history.push('/userPortal');
+          localStorage.setItem('Authtoken', response.data.token);
+          navigate('/user/userPortal'); 
+          
           
         } else {
          
@@ -77,7 +71,7 @@ function Login() {
       })
       .catch((error) => {
        
-        console.error("There was an error saving the data!", error.response.data.message);
+        // console.error("There was an error saving the data!", error.response.data.message);
 
         Swal.fire({
           title: "sorry ",

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import AdminQuearyCard from "../Components/AdminQuearyCard";
-import SendMail from "../api/api"
+
 
 function AdminPortal() {
   useEffect(()=>{
@@ -17,7 +17,7 @@ function AdminPortal() {
   // Fetch all queries
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/queary/allqueries")
+      .get("http://localhost:5001/api/queary/allqueries")
       .then((response) => {
         setQueries(response.data);
       })
@@ -29,7 +29,6 @@ function AdminPortal() {
   // Logout handler
   const handleLogout = () => {
     localStorage.removeItem("AdminAuthtoken");
-
     Swal.fire({
       position: "center",
       icon: "success",
@@ -45,7 +44,7 @@ function AdminPortal() {
   const handleStatusUpdate = async (tiketno, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/queary/editqueries/${tiketno}`,
+        `http://localhost:5001/api/queary/editqueries/${tiketno}`,
         { status: newStatus }
       );
       Swal.fire({
@@ -57,7 +56,7 @@ function AdminPortal() {
       });
       // Refresh queries list
       const response = await axios.get(
-        "http://localhost:5000/api/queary/allqueries"
+        "http://localhost:5001/api/queary/allqueries"
       );
       setQueries(response.data);
     } catch (error) {
@@ -71,18 +70,6 @@ function AdminPortal() {
 
     
   };
-
-  // this for for send email
-  // const handlesendemail = async (query, newmail) => {
-  //   const ttitle =`regarding your queary regarding ${query.title}`
-  //   const Usermail = query.email;
-  //   const agentRespose = newmail;
-  //   SendMail(ttitle,Usermail,agentmessage);
-
-  //   console.log(Usermail);
-  //   console.log(agentRespose);
-    
-  // };
 
   return (
     <>
@@ -118,7 +105,7 @@ function AdminPortal() {
               key={query._id}
               query={query}
               onStatusUpdate={handleStatusUpdate}
-              // onsendemail={handlesendemail}
+              
             />
           ))
         ) : (

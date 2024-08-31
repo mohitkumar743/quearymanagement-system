@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Quearies = require('../models/queary.model');
 
-//tiket generate
+//tiket number generate
 function generateTicketNumber() {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
@@ -110,7 +110,12 @@ router.put('/editqueries/:tiketno', async (req, res) => {
 //  ******************************Delete query by id******************************
 router.delete('/queries/:id', async (req, res) => {
   try {
-    await Quearies.findByIdAndDelete(req.params.id);
+    const query = await Quearies.findByIdAndDelete(req.params.id);
+
+    if (!query) {
+      return res.status(404).json({ message: 'Query not found' });
+    }
+
     res.json({ message: 'Query deleted' });
   } catch (err) {
     res.status(500).json({ message: err.message });

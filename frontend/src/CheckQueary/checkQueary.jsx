@@ -2,7 +2,6 @@ import React, { useState,useEffect } from "react";
 import Navbar from "../Components/navbar";
 import axios from "axios";
 import Swal from "sweetalert2";
-import QuearyCard from "../Components/QuearyCard"; // Assuming QuearyCard is a component
 import TiketCard from "../Components/tiketCard";
 function CheckQueary() {
 
@@ -29,7 +28,7 @@ function CheckQueary() {
     const fetchQueries = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/queary/findbytiket/${tiketno}`
+          `http://localhost:5001/api/queary/findbytiket/${tiketno}`
         );
         console.log(response.data);
         if (response.data.length ==0) {
@@ -99,12 +98,10 @@ function CheckQueary() {
                 <TiketCard key={query._id} query={query} />
               ))
             ) : (
-              
-
               <p className="text-white text-center"> {Queries?"":"No queries found for this ticket number."}</p>
             )}
           </div>
-      {/* <TiketCard/> */}
+      
       </div>
       
     </>

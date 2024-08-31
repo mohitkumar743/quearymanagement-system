@@ -13,7 +13,6 @@ function UserPortal() {
   const navigate = useNavigate();
   const [Userdata, setUserdata] = useState("");
   const [Queries, setQueries] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -25,13 +24,13 @@ function UserPortal() {
         text: "You are not authorized to access this page. Please log in to your account.",
         icon: "error",
       }).then(() => {
-        navigate("/"); // Redirect to login after the alert is closed
+        navigate("/"); 
       });
     } else {
       const fetchUserInfo = async () => {
         try {
           const res = await axios.get(
-            "http://localhost:5000/api/user/profile",
+            "http://localhost:5001/api/user/profile",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -41,7 +40,7 @@ function UserPortal() {
           // console.log(res.data);
           // setUserdata(res.data);
 
-          // Fetch the queries after getting the user data
+          
           if (res.data.MobileNumber) {
             fetchQueries(res.data.MobileNumber);
           }
@@ -57,7 +56,7 @@ function UserPortal() {
   const fetchQueries = async (Mobilenumber) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/queary/queries/${Mobilenumber}`
+        `http://localhost:5001/api/queary/queries/${Mobilenumber}`
       );
       console.log(response.data);
       setQueries(response.data);
@@ -79,12 +78,10 @@ function UserPortal() {
       showConfirmButton: true,
       timer: 1500,
     }).then(() => {
-      navigate("/"); // Redirect to login page
+      navigate("/");
     });
   };
 
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>{error}</p>;
 
   return (
     <>
