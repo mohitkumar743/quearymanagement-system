@@ -67,14 +67,14 @@ function CheckQueary() {
       <Navbar />
       <div className="flex justify-center flex-col items-center">
         <div className="h-[38vh] items-center flex flex-col border-b-orange-500">
-          <h3 className="font-bold text-3xl mt-5 text-white">
+          <h3 className="font-bold sm:text-3xl text-xl mt-5 text-white">
             Check Status of Your Query
           </h3>
           <div className="flex flex-col">
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col mt-3 text-black">
                 <input
-                  className="w-[30vw] rounded-md py-2 m-3 border-2 border-black"
+                  className="sm:w-[30vw] w-[80vw] rounded-md py-2 m-3 border-2 border-black"
                   type="text"
                   name="usertiketnumber"
                   value={tiketno}
