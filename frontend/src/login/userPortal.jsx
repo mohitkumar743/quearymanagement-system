@@ -14,6 +14,7 @@ function UserPortal() {
   const [Userdata, setUserdata] = useState("");
   const [Queries, setQueries] = useState([]);
   const [error, setError] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("Authtoken");
@@ -91,11 +92,11 @@ function UserPortal() {
             <Link to="/">Q M S</Link>
           </div>
           <div className="flex items-center">
-          <Link to="/RegisterQueary"><button className='btn m-3 hover:bg-amber-600 hover:text-black text-white bg-slate-600 shadow-md'>Register Your Queary</button></Link>
+          <Link to="/RegisterQueary"><button className='btn sm:m-3 m-1 sm:w-[180px] w-[30vw] hover:bg-amber-600 hover:text-black text-white bg-transparent shadow-md'>Register Your Queary</button></Link>
 
             <button
               onClick={handleLogout}
-              className="btn text-white btn-outline m-3 w-[100px]"
+              className="btn text-white btn-outline sm:m-3 m-1 sm:w-[100px] w-[80px]"
             >
               Logout
             </button>
@@ -116,7 +117,7 @@ function UserPortal() {
         </div>
       </div>
 
-      <div className="text-left  max-h-[80vh] overflow-y-auto">
+      <div className="text-left  sm:max-h-[80vh]  overflow-y-auto">
         {Queries.length > 0 ? (
           Queries.map((query) => <QuearyCard key={query._id} query={query} />)
         ) : (

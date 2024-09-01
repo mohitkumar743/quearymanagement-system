@@ -161,40 +161,40 @@ const handleSubmit = (e) => {
       <Navbar />
       <div className="flex justify-center items-center ">
         <div className="h-[80vh] w-[50vw]  items-center flex flex-col  border-b-orange-500">
-          <h3 className=" font-bold text-3xl mt-5 text-white">
+          <h3 className=" font-bold sm:text-3xl text-xl mt-5 text-white">
             Registration Your QUEARY
           </h3>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col   mt-3  text-black">
-            <input className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+            <input className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="text"
                 name="Name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Name"
             />
-            <input className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+            <input className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="text"
                 name="MobileNumber"
                 value={formData.mobileno}
                 onChange={handleChange}
                 placeholder="Mobile No"
             />
-            <input className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+            <input className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
             />
-            <input className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+            <input className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="text"
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
                 placeholder="Title"
             />
-            <textarea className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+            <textarea className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}

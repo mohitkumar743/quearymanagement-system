@@ -66,14 +66,14 @@ function adminLogin() {
 
   return (
     <>
-    <div className='text-white text-4xl font-semibold text-center pt-9'>Welcome to the QMS Portal</div>
+    <div className='text-white sm:text-4xl text-3xl font-semibold text-center pt-9'>Welcome to the QMS Portal</div>
       <div className="flex justify-center items-center ">
         <div className="h-[75vh] w-[50vw]  items-center flex flex-col  border-b-orange-500">
           <h3 className=" font-bold text-3xl mt-5 text-white">Admin Login</h3>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col   mt-3  text-black">
               <input
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+                className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="text"
                 name="mobilenumber"
                 value={AdminData.mobilenumber}
@@ -81,7 +81,7 @@ function adminLogin() {
                 placeholder="Enter Your Mobile Number"
               />
               <input
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+                className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="password"
                 name="password"
                 value={AdminData.password}

@@ -85,13 +85,13 @@ function Login() {
     <>
       <Navbar />
       <div className="flex justify-center items-center ">
-        <div className="h-[80vh] w-[50vw]  items-center flex flex-col  border-b-orange-500">
+        <div className="h-[80vh] sm:w-[50vw]   items-center flex flex-col  border-b-orange-500">
           <h3 className=" font-bold text-3xl mt-5 text-white">Login</h3>
 
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col   mt-3  text-black">
               <input
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+                className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="text"
                 name="mobilenumber"
                 value={signinData.mobilenumber}
@@ -100,7 +100,7 @@ function Login() {
               />
 
               <input
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+                className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="password"
                 name="password"
                 value={signinData.password}

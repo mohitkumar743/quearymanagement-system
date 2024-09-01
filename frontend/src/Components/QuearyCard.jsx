@@ -4,7 +4,7 @@ function QuearyCard({ query }) {
   return (
     <>
       <div className="m-8">
-        <div className="bg-white mx-[30vw] h-[23vh] rounded-lg">
+        <div className="bg-white sm:mx-[30vw] sm:h-[23vh]  min-h-[30vh] rounded-lg">
           <div className="flex justify-between items-center mr-5">
             <div className="flex p-2 gap-1">
               <div className="">

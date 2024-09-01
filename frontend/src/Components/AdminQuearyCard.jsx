@@ -179,7 +179,7 @@ function QuearyCard({ query, onStatusUpdate }) {
   return (
     <>
       <div className="m-8 ">
-        <div className="bg-white mx-auto h-[24vh] rounded-lg p-4 shadow-md max-w-4xl">
+        <div className="bg-white mx-auto h-[35vh] rounded-lg p-2 shadow-md max-w-3xl">
           <div className="flex justify-between items-center">
             <div className="flex gap-1">
               <div className="circle">
@@ -199,17 +199,42 @@ function QuearyCard({ query, onStatusUpdate }) {
             </div>
           </div>
           <div className="flex flex-row">
-            <div className="card__content w-[80%]">
-              <div className="flex flex-row gap-20">
+            <div className="card__content sm:w-[80%] w-[100%]">
+              <div className="flex flex-row gap-5">
               <h3 className="text-sm  border-2 border-gray-300 p-1 rounded-md text-gray-600">Tiket Number : {query.ticketNumber}</h3>
               <h3 className="text-sm border-2 border-green-300 p-1 rounded-md text-gray-600">Mobile No : {query.MobileNumber}</h3> </div>
-              <h3 className="text-2xl font-bold">{query.title}</h3>
-              <p className="text-m">{query.description}</p>
-              <p className="text-m text-right mt-2">
+              <h3 className="text-xl font-bold">{query.title}</h3>
+              <p className="text-sm">{query.description}</p>
+              <p className="text-sm text-right mt-2">
                 Created At: {new Date(query.createdAt).toLocaleString()}
               </p>
+
+              {/* status and maill button for mobile */}
+
+              <div className="w-[100%] mt-6  block sm:hidden ">
+              <div className="flex justify-center  items-center">
+                <button
+                  onClick={() => setstatusPopupOpen(true)}
+                  className="btn btn-xs m-4 bg-blue-500 text-white hover:bg-blue-600"
+                >
+                  Update Status
+                </button>
+                <button 
+                onClick={() => setemailPopupOpen(true)}
+                  className="btn btn-xs m-4 bg-green-500 text-white hover:bg-green-600"
+                >
+                  Reply on mail
+                </button>
+
+                <button onClick={() => DeleteQueary()}
+                 className="ml-[10vw] "><img className="w-8" src="/delete.gif" alt="User Avatar" /></button></div>
+              
             </div>
-            <div className="w-[20%] ">
+
+            </div>
+
+            {/* // for laptop screen only status and mail button show */}
+            <div className="w-[20%] hidden sm:block ">
               <div className="flex justify-center flex-col items-center">
                 <button
                   onClick={() => setstatusPopupOpen(true)}

@@ -161,14 +161,14 @@ const [btnaction, setbtnaction] = useState(false);
       <Navbar />
       <div className="flex justify-center items-center ">
         <div className="h-[80vh] w-[50vw]  items-center flex flex-col  border-b-orange-500">
-          <h3 className=" font-bold text-3xl mt-5 text-white">
+          <h3 className=" font-bold sm:text-3xl text-2xl mt-5 text-white">
             Registration Form
           </h3>
 
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col   mt-3  text-black">
               <input
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+                className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="text"
                 name="name"
                 value={formData.name}
@@ -176,7 +176,7 @@ const [btnaction, setbtnaction] = useState(false);
                 placeholder="Enter Your Full Name"
               />
               <input
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+                className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="text"
                 name="username"
                 value={formData.username}
@@ -184,7 +184,7 @@ const [btnaction, setbtnaction] = useState(false);
                 placeholder="Enter Your Username"
               />
               <input
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+                className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="text"
                 name="mobilenumber"
                 value={formData.mobilenumber}
@@ -192,7 +192,7 @@ const [btnaction, setbtnaction] = useState(false);
                 placeholder="Enter Your Mobile Number"
               />
               <input
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+                className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="email"
                 name="email"
                 value={formData.email}
@@ -200,7 +200,7 @@ const [btnaction, setbtnaction] = useState(false);
                 placeholder="Enter Your Email"
               />
               <input
-                className=" w-[30vw] rounded-md py-2  m-3 border-2 border-black"
+                className=" sm:w-[30vw] w-[80vw] rounded-md py-2  m-3 border-2 border-black"
                 type="password"
                 name="password"
                 value={formData.password}
