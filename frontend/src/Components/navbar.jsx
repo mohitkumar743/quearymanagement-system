@@ -10,7 +10,7 @@ function Navbar() {
   <Link to="/">Q M S</Link>
 </div>
       <div className="">
-      {/* <Link to="/admin"><button className="btn text-white btn-outline m-3 w-[100px] ">admin Login</button></Link> */}
+      <Link to="/admin"><button className="btn text-white btn-outline m-3 w-[100px] ">admin Login</button></Link>
       <Link to="/Login"><button className="btn text-white btn-outline m-3 w-[100px] ">Login</button></Link>
       <Link to="/signup"><button className="btn text-white btn-outline m-3 w-[100px] ">SignUp</button></Link>
       
