@@ -161,7 +161,7 @@ const handleSubmit = (e) => {
       <Navbar />
       <div className="flex justify-center items-center ">
         <div className="h-[80vh] w-[50vw]  items-center flex flex-col  border-b-orange-500">
-          <h3 className=" font-bold sm:text-3xl text-lg mt-5 text-white">
+          <h3 className=" font-bold sm:text-3xl text-sm mt-5 text-white">
             Registration Your QUEARY
           </h3>
           <form onSubmit={handleSubmit}>
