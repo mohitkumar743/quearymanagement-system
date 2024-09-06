@@ -1,0 +1,10 @@
+EMAIL=<email>
+EMAILPASSWORD=<app password >
+PORT=5001
+# MONGOSTRING=<mongo altas string>
+JWTKEY=<key>
+
+
+
+
+MONGOSTRING=mongodb://127.0.0.1:27017/query-management for localhost campass
