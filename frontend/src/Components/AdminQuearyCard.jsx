@@ -47,9 +47,11 @@ function QuearyCard({ query, onStatusUpdate }) {
 
   const handleStatusChange = async (event) => {
     event.preventDefault();
+    setbtnaction(true);
     try {
       await onStatusUpdate(query.ticketNumber, newStatus);
       setstatusPopupOpen(false);
+      setbtnaction(false);
     } catch (error) {
       Swal.fire({
         position: "center",
@@ -57,12 +59,14 @@ function QuearyCard({ query, onStatusUpdate }) {
         text: "Failed to update status.",
         showConfirmButton: true,
       });
+      setbtnaction(false);
     }
   };
   const handlesendemail = async (event) => {
+    event.preventDefault();
     setbtnaction(true);
     const currstatus = query.status
-    event.preventDefault();
+    
     if(currstatus=="closed"){
       Swal.fire({
         position: "center",
@@ -284,7 +288,7 @@ function QuearyCard({ query, onStatusUpdate }) {
                 type="submit"
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
               >
-                Update
+                 {btnaction?"Please Wait":"Update "}
               </button>
             </form>
           </div>

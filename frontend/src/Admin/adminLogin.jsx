@@ -30,6 +30,7 @@ const [btnaction, setbtnaction] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     setbtnaction(true);
+    localStorage.removeItem("AdminAuthtoken");
 
     axios
       .post("https://queary-management-system-server.onrender.com/api/user/Admin", AdminData)
@@ -66,6 +67,7 @@ const [btnaction, setbtnaction] = useState(false);
           text: error.response.data.message,
           icon: "error",
         });
+        setbtnaction(false);
       });
   };
 
