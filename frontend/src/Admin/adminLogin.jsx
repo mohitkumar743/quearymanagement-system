@@ -11,6 +11,8 @@ function adminLogin() {
     
     document.title= "Admin Login || QMS";
 })
+const [btnaction, setbtnaction] = useState(false);
+
   const navigate = useNavigate();
   const [AdminData, setAdminData] = useState({
     mobilenumber: "",
@@ -27,12 +29,14 @@ function adminLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setbtnaction(true);
 
     axios
       .post("https://queary-management-system-server.onrender.com/api/user/Admin", AdminData)
       .then((response) => {
         //console.log(response.data.token);
         if (response.data.token) {
+          setbtnaction(false);
           Swal.fire({
             position: "center",
             icon: "success",
@@ -48,6 +52,7 @@ function adminLogin() {
             text: "your mobile number or password is wrong please try with correct details",
             icon: "error",
           }); 
+          setbtnaction(false);
         }
         setAdminData({
           mobilenumber: "",
@@ -88,11 +93,12 @@ function adminLogin() {
                 onChange={handleChange}
                 placeholder="Enter Your Password"
               />
-              <button
+              <button disabled={btnaction}
                 className=" border-2  h-[60px] p-1 m-3 rounded-md bg-slate-400 hover:bg-orange-500 border-black text-center"
                 type="submit"
               >
-               Admin Login
+               
+               {btnaction?"Please Wait":"Admin Login"}
               </button>
             </div>
           </form>

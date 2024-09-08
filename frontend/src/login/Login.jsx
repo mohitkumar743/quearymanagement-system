@@ -12,6 +12,7 @@ function Login() {
     document.title= "Login || QMS";
 })
   const navigate = useNavigate();
+  const [btnaction, setbtnaction] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('Authtoken');
@@ -36,6 +37,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setbtnaction(true);
 
     axios
       .post("https://queary-management-system-server.onrender.com/api/user/login", signinData)
@@ -49,6 +51,7 @@ function Login() {
             showConfirmButton: false,
             timer: 1500
           });
+          setbtnaction(false);
           localStorage.setItem('Authtoken', response.data.token);
           navigate('/user/userPortal'); 
           
@@ -108,11 +111,11 @@ function Login() {
                 placeholder="Enter Your Password"
               />
 
-              <button
+              <button disabled={btnaction}
                 className=" border-2  h-[60px] p-1 m-3 rounded-md bg-slate-400 hover:bg-orange-500 border-black text-center"
                 type="submit"
               >
-                Login
+                {btnaction?"Please Wait":"Login"}
               </button>
             </div>
           </form>
