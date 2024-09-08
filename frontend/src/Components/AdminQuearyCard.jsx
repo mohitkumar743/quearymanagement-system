@@ -179,7 +179,7 @@ function QuearyCard({ query, onStatusUpdate }) {
   return (
     <>
       <div className="m-8 ">
-        <div className="bg-white mx-auto h-[35vh] rounded-lg p-2 shadow-md max-w-3xl">
+        <div className="bg-white mx-auto h-fit rounded-lg p-2 shadow-md max-w-3xl">
           <div className="flex justify-between items-center">
             <div className="flex gap-1">
               <div className="circle">
@@ -211,7 +211,7 @@ function QuearyCard({ query, onStatusUpdate }) {
 
               {/* status and maill button for mobile */}
 
-              <div className="w-[100%] mt-6  block sm:hidden ">
+              <div className="w-[100%] mt-6 h-fit block sm:hidden ">
               <div className="flex justify-center  items-center">
                 <button
                   onClick={() => setstatusPopupOpen(true)}
@@ -227,14 +227,14 @@ function QuearyCard({ query, onStatusUpdate }) {
                 </button>
 
                 <button onClick={() => DeleteQueary()}
-                 className="ml-[10vw] "><img className="w-8" src="/delete.gif" alt="User Avatar" /></button></div>
+                 className="ml-[3vw] "><img className="w-8" src="/delete.gif" alt="User Avatar" /></button></div>
               
             </div>
 
             </div>
 
             {/* // for laptop screen only status and mail button show */}
-            <div className="w-[20%] hidden sm:block ">
+            <div className="w-[20%] hidden sm:block xl:block ">
               <div className="flex justify-center flex-col items-center">
                 <button
                   onClick={() => setstatusPopupOpen(true)}
@@ -250,7 +250,7 @@ function QuearyCard({ query, onStatusUpdate }) {
                 </button></div>
 
                 <button onClick={() => DeleteQueary()}
-                 className="ml-[9vw] "><img className="w-6" src="/delete.gif" alt="User Avatar" /></button>
+                 className="ml-[5vw] xl:ml-[3vw] "><img className="w-8  " src="/delete.gif" alt="User Avatar" /></button>
               
             </div>
           </div>
