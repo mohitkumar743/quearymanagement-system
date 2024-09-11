@@ -112,7 +112,7 @@ const [btnaction, setbtnaction] = useState(false);
                   <p>Hi ${formData.name},</p>
                   <p>Thank you for registering with QMS. Your account has been successfully created.
                   <br> please Login to register your Queary.<br> Thank You .</p>
-                 <a href="http://localhost:5173/login" class="button">Login</a>
+                 <a href="https://querysolution.vercel.app/login" class="button">Login</a>
               </div>
               <div class="footer">
                   <p>© 2024 Q M S. All rights reserved.</p>

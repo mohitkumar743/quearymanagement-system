@@ -114,7 +114,7 @@ const handleSubmit = (e) => {
                       <h2>Queary Registration Confirmation</h2>
                       <p>Hi ${formData.Name},</p>
                       <p>Your Queary is Registered Sucessfully.<br> Your queary is :<strong>${formData.title}</strong> <br> Description:  ${formData.description} <br>Your tiket Number : ${ticketNumber}<br> please Check Status of your Queary.<br> Thank You .</p>
-                     <a href="http://localhost:5173/CheckQueary" class="button">Check status</a>
+                     <a href="https://querysolution.vercel.app/CheckQueary" class="button">Check status</a>
                   </div>
                   <div class="footer">
                       <p>© 2024 Q M S. All rights reserved.</p>
