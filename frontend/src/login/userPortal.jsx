@@ -92,7 +92,7 @@ function UserPortal() {
             <Link to="/">Q M S</Link>
           </div>
           <div className="flex items-center">
-          <Link to="/RegisterQueary"><button className='btn sm:m-3 m-1 sm:w-[180px] w-[30vw] hover:bg-amber-600 hover:text-black text-white bg-transparent shadow-md'>Register Your Queary</button></Link>
+          <Link to="/RegisterQueary"><button className='btn sm:m-3 m-1 sm:w-[180px] w-[30vw] hover:bg-amber-600 hover:text-black text-white bg-transparent shadow-md'>Register Your Query</button></Link>
 
             <button
               onClick={handleLogout}
