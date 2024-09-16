@@ -15,7 +15,7 @@ function QuearyCard({ query, onStatusUpdate }) {
   const DeleteQueary =()=>{
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't to delete this queary",
+      text: "You won't to delete this Query",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -23,7 +23,7 @@ function QuearyCard({ query, onStatusUpdate }) {
       confirmButtonText: "Yes, delete it!"
     }).then(async(result) => {
       if (result.isConfirmed) {
-        // calling a delete api for delete the queary
+        // calling a delete api for delete the Query
         try {
           
           const response = await axios.delete(`https://queary-management-system-server.onrender.com/api/queary/queries/${query._id}`);
@@ -152,7 +152,7 @@ function QuearyCard({ query, onStatusUpdate }) {
               <div class="content">
                   <h2>Agent Response </h2>
                   <p>Hi ${query.Name},</p>
-                  <p>Your queary is :<strong>${query.title}</strong> <br> Description :${query.description} <br>Your tiket Number : ${query.ticketNumber}<br> Agent Reply: ${newmail}<br> Thank You .</p>
+                  <p>Your Query is :<strong>${query.title}</strong> <br> Description :${query.description} <br>Your tiket Number : ${query.ticketNumber}<br> Agent Reply: ${newmail}<br> Thank You .</p>
              
               </div>
               <div class="footer">
@@ -164,7 +164,7 @@ function QuearyCard({ query, onStatusUpdate }) {
       </html>
       `;
       
-      const ttitle =`regarding your queary regarding ${query.title}`;
+      const ttitle =`regarding your Query regarding ${query.title}`;
     await SendMail(ttitle,Usermail,agentRespose);
       // console.log(Usermail);
       // console.log(agentRespose);

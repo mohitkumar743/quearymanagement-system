@@ -20,8 +20,8 @@ function Home() {
         <p className=' sm:w-[30vw] w-[80vw] text-center font-light '>Ready to experience top-notch query resolution?<br></br>Regiser now to get started </p>
 
         <div className='flex sm:flex-row flex-col items-center'>
-        <Link to="/RegisterQueary"><button className='btn m-3 hover:bg-amber-600 hover:text-black text-white bg-slate-600 shadow-md'>Register Your Queary</button></Link>
-        <Link to="/CheckQueary"><button className='btn m-3 hover:bg-amber-600 hover:text-black text-white bg-slate-600 shadow-md'>Check Status OF Your Queary</button></Link></div></div>
+        <Link to="/RegisterQueary"><button className='btn m-3 hover:bg-amber-600 hover:text-black text-white bg-slate-600 shadow-md'>Register Your Query</button></Link>
+        <Link to="/CheckQueary"><button className='btn m-3 hover:bg-amber-600 hover:text-black text-white bg-slate-600 shadow-md'>Check Status OF Your Query</button></Link></div></div>
     </div>
    
     

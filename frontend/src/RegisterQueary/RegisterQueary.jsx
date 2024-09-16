@@ -8,7 +8,7 @@ import SendMail from "../api/api"
 function RegisterQueary() {
   useEffect(()=>{
     
-    document.title= "Queary Register || QMS";
+    document.title= "Query Register || QMS";
 })
 
 const [btnaction, setbtnaction] = useState(false);
@@ -45,7 +45,7 @@ const handleSubmit = (e) => {
           <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Queary Registration Confirmation</title>
+              <title>Query Registration Confirmation</title>
               <style>
                   body {
                       font-family: Arial, sans-serif;
@@ -111,9 +111,9 @@ const handleSubmit = (e) => {
                       <h1>Welcome to QMS!</h1>
                   </div>
                   <div class="content">
-                      <h2>Queary Registration Confirmation</h2>
+                      <h2>Query Registration Confirmation</h2>
                       <p>Hi ${formData.Name},</p>
-                      <p>Your Queary is Registered Sucessfully.<br> Your queary is :<strong>${formData.title}</strong> <br> Description:  ${formData.description} <br>Your tiket Number : ${ticketNumber}<br> please Check Status of your Queary.<br> Thank You .</p>
+                      <p>Your Query is Registered Sucessfully.<br> Your Query is :<strong>${formData.title}</strong> <br> Description:  ${formData.description} <br>Your tiket Number : ${ticketNumber}<br> please Check Status of your Query.<br> Thank You .</p>
                      <a href="https://querysolution.vercel.app/CheckQueary" class="button">Check status</a>
                   </div>
                   <div class="footer">
@@ -125,7 +125,7 @@ const handleSubmit = (e) => {
           </html>
           `;
           // const agentRespose = `Hello ${formData.Name}. Your Queary is Registered Sucessfully.Your tiket Number : ${ticketNumber} please Check Status of your Queary. Thank You . `;
-          const ttitle =`Queary submited sucessfully `;
+          const ttitle =`Query submited sucessfully `;
         await SendMail(ttitle,Usermail,agentRespose);
         //   console.log(Usermail);
         //   console.log(agentRespose);
@@ -133,7 +133,7 @@ const handleSubmit = (e) => {
 
 
           Swal.fire({
-            title: " Your Queary  Sucessfully Registered !",
+            title: " Your Query  Sucessfully Registered !",
             text: ` Our Agent get in touch with you Shortly . Your ticket number is ${ticketNumber}`,
             icon: "success"
           });
@@ -162,7 +162,7 @@ const handleSubmit = (e) => {
       <div className="flex justify-center items-center ">
         <div className="h-[80vh] w-[50vw]  items-center flex flex-col  border-b-orange-500">
           <h3 className=" font-bold sm:text-3xl text-sm mt-5 text-white">
-            Registration Your QUEARY
+            Registration Your QUERY
           </h3>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col   mt-3  text-black">

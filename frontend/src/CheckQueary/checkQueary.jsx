@@ -8,7 +8,7 @@ function CheckQueary() {
   const [btnaction, setbtnaction] = useState(false);
   useEffect(()=>{
     
-    document.title= "Queary Status|| QMS";
+    document.title= "Query Status|| QMS";
 })
   const [tiketno, Settiketno] = useState("");
   const [Queries, setQueries] = useState([]);
@@ -35,7 +35,7 @@ function CheckQueary() {
           Swal.fire({
             position: "center",
             icon: "error",
-            text: "no queary found",
+            text: "no Query found",
             showConfirmButton: true,
           });
           
