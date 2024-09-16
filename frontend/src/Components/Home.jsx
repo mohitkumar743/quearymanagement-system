@@ -21,7 +21,7 @@ function Home() {
 
         <div className='flex sm:flex-row flex-col items-center'>
         <Link to="/RegisterQueary"><button className='btn m-3 hover:bg-amber-600 hover:text-black text-white bg-slate-600 shadow-md'>Register Your Query</button></Link>
-        <Link to="/CheckQueary"><button className='btn m-3 hover:bg-amber-600 hover:text-black text-white bg-slate-600 shadow-md'>Check Status OF Your Query</button></Link></div></div>
+        <Link to="/CheckQueary"><button className='btn m-3 hover:bg-amber-600 hover:text-black text-white bg-slate-600 shadow-md'>Check Status Of Your Query</button></Link></div></div>
     </div>
    
     
